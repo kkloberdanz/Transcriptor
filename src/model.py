@@ -5,6 +5,12 @@ import zipfile
 import torchaudio
 from glob import glob
 
+languages = {
+    "en",
+    "es",
+    "de",
+}
+
 device = torch.device("cpu")  # gpu also works, but our models are fast enough for CPU
 
 def predict(language):

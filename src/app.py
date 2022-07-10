@@ -7,13 +7,6 @@ import model
 app = Flask(__name__)
 
 
-languages = {
-    "en",
-    "es",
-    "de",
-}
-
-
 @app.route("/")
 def hello():
     return "Hello World!\n"
@@ -21,7 +14,7 @@ def hello():
 
 @app.route("/predict/<language>", methods=["POST"])
 def predict(language):
-    if language not in languages:
+    if language not in model.languages:
         return (f"language: '{language}' not supported", 400)
     else:
         predicted_text = model.predict(language)
